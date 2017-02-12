@@ -1,16 +1,23 @@
-define("greeter", ["require", "exports"], function (require, exports) {
+define("util", ["require", "exports"], function (require, exports) {
+    "use strict";
+    var console = document.getElementById("console");
+    function Log(logEntry) {
+        window.console.log("logging: " + logEntry);
+        console.innerHTML += "\n" + logEntry;
+    }
+    exports.Log = Log;
+});
+define("greeter", ["require", "exports", "util"], function (require, exports, util) {
     "use strict";
     var Greeter = (function () {
         function Greeter() {
             this._greeting = 'hello';
-            console.log(this._greeting);
+            util.Log(this._greeting);
         }
         return Greeter;
     }());
     exports.Greeter = Greeter;
 });
-define("app", ["require", "exports", "greeter"], function (require, exports, greeter_1) {
+define("app", ["require", "exports"], function (require, exports) {
     "use strict";
-    var greeter = new greeter_1.Greeter();
-    var greeter2 = new greeter_1.Greeter();
 });

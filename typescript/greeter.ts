@@ -1,6 +1,8 @@
+import * as util from './util';
+
 export class Greeter{
     private _greeting = 'hello';
     constructor() {
-        console.log(this._greeting);
+        util.Log(this._greeting);
     }
 }
