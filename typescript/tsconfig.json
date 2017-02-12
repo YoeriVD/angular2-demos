@@ -6,6 +6,8 @@
         "target": "es5",
         "noImplicitAny": false,
         "sourceMap": true,        
-        "watch": false
+        "watch": false,
+        "outDir": "dist",
+        "sourceRoot": "app"
     }
 }

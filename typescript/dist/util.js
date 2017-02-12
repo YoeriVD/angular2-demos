@@ -12,7 +12,6 @@ var Loggers = {
     "html": function (logEntry) { return document.getElementById("console").innerHTML += "\n" + logEntry; }
 };
 function Log(logEntry) {
-    console.log(exports.settings.out);
     Loggers[OutKind[exports.settings.out]](logEntry);
 }
 exports.Log = Log;
