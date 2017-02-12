@@ -5,3 +5,4 @@ var Greeter = (function () {
     }
     return Greeter;
 }());
+var greeter = new Greeter();

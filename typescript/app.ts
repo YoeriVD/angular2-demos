@@ -4,3 +4,5 @@ class Greeter{
         console.log(this._greeting);
     }
 }
+
+let greeter = new Greeter();
