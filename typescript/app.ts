@@ -1,8 +1,4 @@
-class Greeter{
-    private _greeting = 'hello';
-    constructor() {
-        console.log(this._greeting);
-    }
-}
+import {Greeter} from './greeter';
 
 let greeter = new Greeter();
+let greeter2 = new Greeter();
