@@ -1,9 +1,14 @@
 define("util", ["require", "exports"], function (require, exports) {
     "use strict";
-    var console = document.getElementById("console");
+    exports.settings = {
+        out: "console"
+    };
+    var Loggers = {
+        "console": function (logEntry) { return console.log(logEntry); },
+        "html": function (logEntry) { return document.getElementById("console").innerHTML += "\n" + logEntry; }
+    };
     function Log(logEntry) {
-        window.console.log("logging: " + logEntry);
-        console.innerHTML += "\n" + logEntry;
+        Loggers[exports.settings.out](logEntry);
     }
     exports.Log = Log;
 });
@@ -18,6 +23,9 @@ define("greeter", ["require", "exports", "util"], function (require, exports, ut
     }());
     exports.Greeter = Greeter;
 });
-define("app", ["require", "exports"], function (require, exports) {
+define("app", ["require", "exports", "util"], function (require, exports, util) {
     "use strict";
+    util.settings.out = "console";
+    util.Log('starting the application...');
 });
+//# sourceMappingURL=app.js.map

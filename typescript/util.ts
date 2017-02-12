@@ -1,5 +1,11 @@
-const console = document.getElementById("console");
+export const settings = {
+    out  : "console"
+}
+
+const Loggers = {
+    "console" : (logEntry : string) => console.log(logEntry),
+    "html" : (logEntry : string) => document.getElementById("console").innerHTML += `\n${logEntry}`
+}
 export function Log(logEntry : string){
-    window.console.log(`logging: ${logEntry}`)    
-    console.innerHTML += `\n${logEntry}`;
+    Loggers[settings.out](logEntry);
 }

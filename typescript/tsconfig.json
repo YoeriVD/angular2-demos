@@ -3,8 +3,8 @@
         "module": "amd",
         "target": "es5",
         "noImplicitAny": false,
-        "sourceMap": false,
+        "sourceMap": true,
         "outFile": "app.js",
-        "watch": true
+        "watch": false
     }
 }
