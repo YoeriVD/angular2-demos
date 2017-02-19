@@ -23,8 +23,8 @@
           <tr *ngFor="let expense of expenses">
             <td>{{expense.id}}</td>
             <td>{{expense.description}}</td>
-            <td>{{expense.dateOfExpense | date }}</td>
-            <td>{{expense.amount | currency }}</td>
+            <td>{{expense.dateOfExpense | date : 'longDate' }}</td>
+            <td>{{expense.amount | currency : 'EUR' : true }}</td>
           </tr>
         </tbody>
       </table>
