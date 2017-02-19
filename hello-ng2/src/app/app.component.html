@@ -20,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let expense of expenses">
+          <tr *ngFor="let expense of expenses; trackBy: id">
             <td>{{expense.id}}</td>
             <td>{{expense.description}}</td>
             <td>{{expense.dateOfExpense | date : 'longDate' }}</td>
