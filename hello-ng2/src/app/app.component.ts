@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Expense } from './expense'
 
@@ -32,21 +32,28 @@ export class AppComponent {
 
 
 
-  constructor(private ref: ChangeDetectorRef, private fb : FormBuilder, private datePipe : DatePipe) {
+  constructor(private ref: ChangeDetectorRef, private fb: FormBuilder, private datePipe: DatePipe) {
     // this.form = new FormGroup({
     //   description: new FormControl(),
     //   dateOfExpense: new FormControl(),
     //   amount: new FormControl()
     // })
     this.form = this.fb.group({
-      description: 'new item',
-      dateOfExpense: this.datePipe.transform(new Date(), 'shortDate'),
+      description: ['new item', Validators.required],
+      dateOfExpense: new Date(),
       amount: 10.99
     });
   }
 
-  addExpense(){
+  addExpense() {
     console.log("submitting", this.form.value);
+    var newExpense: Expense = new Expense(
+      this.form.value.description,
+      this.form.value.amount,
+      new Date(this.form.value.dateOfExpense)
+    );
+    this.expenses.push(newExpense);
+    this.form.reset();
   }
 
   updateSorting() {
