@@ -10,39 +10,9 @@
       <img [src]="img" width="50px" class="col-lg-1 col-lg-offset-11" style="display:block;" />
     </div>
     <div class="panel">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" [class.btn-primary]="orderByProp === prop" class="btn btn-secondary" *ngFor="let prop of expenseProps"
-          (click)="orderByProp = prop">{{prop}}</button>
-      </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Sequence</th>
-            <th>Description</th>
-            <th>Date</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let expense of expenses | orderBy : orderByProp; trackBy: id" [class.too-expensive]="expense.amount > 300">
-            <td>{{expense.id}}</td>
-            <td>{{expense.description}}</td>
-            <td>{{expense.dateOfExpense | date : 'longDate' }}</td>
-            <td>{{expense.amount | currency : 'EUR' : true }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <form class="form-inline" (submit)="addExpense()" [formGroup]="form">
-        <div class="row">
-          <div class="col-lg-2"><button type="submit" id="submit" class="btn btn-primary">add expense</button></div>
-          <div class=" col-lg-3">
-            <input type="text" id="description" class="form-control" formControlName="description"></div>
-          <div class="col-lg-offset-1 col-lg-3">
-            <input type="date" id="dateOfExpense" class="form-control" formControlName="dateOfExpense"></div>
-          <div class=" col-lg-3">
-            <input type="number" step="0.01" id="amount" class="form-control" formControlName="amount"></div>
-        </div>
-      </form>
+      <expense-list-sorting [exampleObject]="expenses[0]" (sortingChanged)="changeSorting($event)"></expense-list-sorting>
+      <expense-list [expenses]="expenses" [orderBy]="sortBy"></expense-list>
+      <expense-form (newExpense)="addExpense($event)"></expense-form>
     </div>
 
   </div>

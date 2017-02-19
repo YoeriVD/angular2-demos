@@ -1,0 +1,4 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" [class.btn-primary]="orderByProp === prop" class="btn btn-secondary" *ngFor="let prop of expenseProps"
+        (click)="setSorting(prop)">{{prop}}</button>
+</div>
