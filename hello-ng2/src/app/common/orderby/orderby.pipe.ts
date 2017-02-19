@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OrderByPipe implements PipeTransform {
     transform(value: any[], ...args: any[]): any {
         if(!value) return value;
-        console.debug("sorting on", args[0]);
+        //console.debug("sorting on", args[0]);
         return value.sort((current, next) =>{
             const currentProperty = current[args[0]];
             const nextProperty = next[args[0]];
