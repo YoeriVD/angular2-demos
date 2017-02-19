@@ -6,7 +6,7 @@
     {{ subtitle }}
   </h2>
   <div class="jumbotron">
-    <div class="row" [hidden]="hideSign" (click)="signClicked()">
+    <div class="row" *ngIf="!hideSign" (click)="signClicked()">
       <img [src]="img" width="50px" class="col-lg-1 col-lg-offset-11" style="display:block;" />
     </div>
     <div class="panel">
