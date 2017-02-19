@@ -3,7 +3,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { DatePipe } from '@angular/common';
 import { Expense } from './expense'
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,20 +16,13 @@ export class AppComponent {
   hideSign = false;
   expenseProps = Object.keys(new Expense(null, null, null)).sort();
   orderByProp = "amount"
-
-
   form: FormGroup;
-
-
   expenses: Expense[] = [
     new Expense("lunch", 10, new Date()),
     new Expense("coffee", 4.50, new Date('12/02/2017')),
     new Expense("new mobile phone", 586.99, new Date('02/01/2017')),
     new Expense("new laptop", 2565.60, new Date('01/01/2017')),
   ]
-
-
-
 
   constructor(private ref: ChangeDetectorRef, private fb: FormBuilder, private datePipe: DatePipe) {
     // this.form = new FormGroup({
