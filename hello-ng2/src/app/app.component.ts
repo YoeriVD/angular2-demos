@@ -1,4 +1,4 @@
-import { Component, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Expense } from './expense'
 
 
@@ -8,7 +8,7 @@ import { Expense } from './expense'
   styleUrls: ['./app.component.css'],
   
 })
-export class AppComponent implements OnChanges {
+export class AppComponent {
   title = 'Expense account!';
   subtitle = 'Please enter your expenses here';
   img = "./euro.png";
@@ -31,9 +31,6 @@ export class AppComponent implements OnChanges {
 
   signClicked() {
     this.hideSign = true;
-  }
-  ngOnChanges(){
-    console.log("change detected")
   }
 
 }
