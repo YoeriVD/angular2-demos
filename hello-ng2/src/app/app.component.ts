@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Expense } from './expense'
@@ -9,20 +9,26 @@ import { Expense } from './expense'
   styleUrls: ['./app.component.css'],
   providers: [DatePipe]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Expense account!';
   subtitle = 'Please enter your expenses here';
   img = "./euro.png";
   hideSign = false;
-  expenseProps = Object.keys(new Expense(null, null, null)).sort();
+  expenseProps: string[] = [];
   orderByProp = "amount"
   form: FormGroup;
-  expenses: Expense[] = [
-    new Expense("lunch", 10, new Date()),
-    new Expense("coffee", 4.50, new Date('12/02/2017')),
-    new Expense("new mobile phone", 586.99, new Date('02/01/2017')),
-    new Expense("new laptop", 2565.60, new Date('01/01/2017')),
-  ]
+  expenses: Expense[];
+
+  ngOnInit() {
+    var vm = this;
+    this.expenses = [
+      new Expense("lunch", 10, new Date()),
+      new Expense("coffee", 4.50, new Date('12/02/2017')),
+      new Expense("new mobile phone", 586.99, new Date('02/01/2017')),
+      new Expense("new laptop", 2565.60, new Date('01/01/2017')),
+    ]
+    Object.keys(this.expenses[0]).sort().forEach(e => this.expenseProps.push(e));
+  }
 
   constructor(private ref: ChangeDetectorRef, private fb: FormBuilder, private datePipe: DatePipe) {
     // this.form = new FormGroup({
