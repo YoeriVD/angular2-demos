@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Expense } from './expense'
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,21 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Expense account!';
   subtitle = 'Please enter your expenses here';
-  
+  img = "./euro.png";
+  hideSign = false;
 
+  expenses: Expense[] = [
+    new Expense("lunch", 10, new Date()),
+    new Expense("coffee", 4.50, new Date('12/02/2017')),
+    new Expense("new mobile phone", 586.99, new Date('02/01/2017')),
+    new Expense("new laptop", 2565.60, new Date('01/01/2017')),
+  ]
+
+  constructor() {
+  }
+
+  signClicked() {
+    this.hideSign = true;
+  }
 
 }

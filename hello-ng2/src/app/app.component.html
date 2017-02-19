@@ -6,9 +6,28 @@
     {{ subtitle }}
   </h2>
   <div class="jumbotron">
-
+    <div class="row" [hidden]="hideSign" (click)="signClicked()">
+      <img [src]="img" width="50px" class="col-lg-1 col-lg-offset-11" style="display:block;" />
+    </div>
     <div class="panel">
-      bla
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sequence</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let expense of expenses">
+            <td>{{expense.id}}</td>
+            <td>{{expense.description}}</td>
+            <td>{{expense.dateOfExpense | date }}</td>
+            <td>{{expense.amount | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
