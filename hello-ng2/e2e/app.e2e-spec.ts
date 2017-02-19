@@ -15,11 +15,12 @@ describe('hello-ng2 App', function () {
 
   it('should be able to add an item', () => {
     page.navigateTo();
-
-    page.getForm().amount.sendKeys("10.33");
+    expect(element.all(by.css('tbody tr')).count()).toBe(4);
+    
     page.getForm().description.sendKeys("test item");
     page.getForm().dateOfExpense.sendKeys("12122012");
     page.getForm().submitButton.click();
+    browser.debugger();
     expect(element.all(by.css('tbody tr')).count()).toBe(5);
   });
 });
