@@ -7,6 +7,8 @@ import { LOCALE_ID } from '@angular/core';
 import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
+import { PipesModule  } from './common/pipes.module'
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AppComponent } from './app.component';
     AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+  PipesModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue : 'nl-BE'}

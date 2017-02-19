@@ -10,6 +10,9 @@
       <img [src]="img" width="50px" class="col-lg-1 col-lg-offset-11" style="display:block;" />
     </div>
     <div class="panel">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" [class.btn-primary]="orderByProp === prop" class="btn btn-secondary" *ngFor="let prop of expenseProps" (click)="orderByProp = prop">{{prop}}</button>
+        </div>
       <table class="table">
         <thead>
           <tr>
@@ -20,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let expense of expenses; trackBy: id" [class.too-expensive]="expense.amount > 300">
+          <tr *ngFor="let expense of expenses | orderBy : orderByProp; trackBy: id" [class.too-expensive]="expense.amount > 300">
             <td>{{expense.id}}</td>
             <td>{{expense.description}}</td>
             <td>{{expense.dateOfExpense | date : 'longDate' }}</td>
