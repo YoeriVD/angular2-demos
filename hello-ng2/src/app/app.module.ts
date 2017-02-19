@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LOCALE_ID } from '@angular/core';
 
 import { AlertModule } from 'ng2-bootstrap';
 
 import { AppComponent } from './app.component';
-import { PipesModule  } from './common/pipes.module'
+import { PipesModule } from './common/pipes.module'
 
 
 @NgModule({
@@ -19,10 +19,11 @@ import { PipesModule  } from './common/pipes.module'
     BrowserModule,
     FormsModule,
     HttpModule,
-  PipesModule
+    PipesModule,
+    ReactiveFormsModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue : 'nl-BE'}
+    { provide: LOCALE_ID, useValue: 'nl-BE' }
   ],
   bootstrap: [AppComponent]
 })

@@ -10,9 +10,10 @@
       <img [src]="img" width="50px" class="col-lg-1 col-lg-offset-11" style="display:block;" />
     </div>
     <div class="panel">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" [class.btn-primary]="orderByProp === prop" class="btn btn-secondary" *ngFor="let prop of expenseProps" (click)="orderByProp = prop">{{prop}}</button>
-        </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" [class.btn-primary]="orderByProp === prop" class="btn btn-secondary" *ngFor="let prop of expenseProps"
+          (click)="orderByProp = prop">{{prop}}</button>
+      </div>
       <table class="table">
         <thead>
           <tr>
@@ -31,6 +32,17 @@
           </tr>
         </tbody>
       </table>
+      <form class="form-inline" (ngSubmit)="addExpense()" [formGroup]="form">
+        <div class="row">
+          <div class="col-lg-2">new expense: </div>
+          <div class=" col-lg-3">
+            <input type="text" id="description" class="form-control" formControlName="description"></div>
+          <div class="col-lg-offset-1 col-lg-3">
+            <input type="text" id="dateOfExpense" class="form-control" formControlName="dateOfExpense"></div>
+          <div class=" col-lg-3">
+            <input type="text" id="amount" class="form-control" formControlName="amount"></div>
+        </div>
+      </form>
     </div>
 
   </div>

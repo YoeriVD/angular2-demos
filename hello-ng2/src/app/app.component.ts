@@ -1,4 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 import { Expense } from './expense'
 
 
@@ -6,7 +8,7 @@ import { Expense } from './expense'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  
+  providers: [DatePipe]
 })
 export class AppComponent {
   title = 'Expense account!';
@@ -16,6 +18,10 @@ export class AppComponent {
   expenseProps = Object.keys(new Expense(null, null, null)).sort();
   orderByProp = "amount"
 
+
+  form: FormGroup;
+
+
   expenses: Expense[] = [
     new Expense("lunch", 10, new Date()),
     new Expense("coffee", 4.50, new Date('12/02/2017')),
@@ -23,9 +29,27 @@ export class AppComponent {
     new Expense("new laptop", 2565.60, new Date('01/01/2017')),
   ]
 
-  constructor(private ref: ChangeDetectorRef) {
+
+
+
+  constructor(private ref: ChangeDetectorRef, private fb : FormBuilder, private datePipe : DatePipe) {
+    // this.form = new FormGroup({
+    //   description: new FormControl(),
+    //   dateOfExpense: new FormControl(),
+    //   amount: new FormControl()
+    // })
+    this.form = this.fb.group({
+      description: 'new item',
+      dateOfExpense: this.datePipe.transform(new Date(), 'shortDate'),
+      amount: 10.99
+    });
   }
-  updateSorting(){
+
+  addExpense(){
+    console.log("submitting", this.form.value);
+  }
+
+  updateSorting() {
     this.ref.detectChanges();
   }
 
