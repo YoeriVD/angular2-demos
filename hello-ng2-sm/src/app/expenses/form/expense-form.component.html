@@ -1,0 +1,11 @@
+<form class="form-inline" [formGroup]="newExpenseForm" (ngSubmit)="addExpense()">
+    <div class="row">
+        <div class="col-lg-2"><button [disabled]="newExpenseForm.invalid" type="submit" id="submit" class="btn btn-primary">add expense</button></div>
+        <div class=" col-lg-3">
+            <input type="text" id="description" #f class="form-control" formControlName="description"></div>
+        <div class="col-lg-offset-1 col-lg-3">
+            <input type="text" id="dateOfExpense" class="form-control" formControlName="dateOfExpense"></div>
+        <div class=" col-lg-3">
+            <input type="number" step="0.01" id="amount" class="form-control" formControlName="amount"></div>
+    </div>
+</form>

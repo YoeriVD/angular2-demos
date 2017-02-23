@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>description</th>
+            <th>date</th>
+            <th>amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let expense of expenses | orderBy : orderByPropName" [class.expensive]="expense.amount > 1000">
+            <td>{{ expense.id }}</td>
+            <td>{{ expense.description }}</td>
+            <td>{{ expense.dateOfExpense | date : 'longDate' }}</td>
+            <td>{{ expense.amount | currency : 'EUR' : true }}</td>
+        </tr>
+    </tbody>
+</table>

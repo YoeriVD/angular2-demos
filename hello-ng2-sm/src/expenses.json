@@ -1,0 +1,26 @@
+[
+    {
+        "description": "train ticket",
+        "dateOfExpense": "2017-02-23T09:16:49.309Z",
+        "amount": 18.2,
+        "id": 1
+    },
+    {
+        "description": "lunch",
+        "dateOfExpense": "2017-01-31T23:00:00.000Z",
+        "amount": 10.2,
+        "id": 2
+    },
+    {
+        "description": "parking ticket",
+        "dateOfExpense": "2017-03-02T23:00:00.000Z",
+        "amount": 5.23,
+        "id": 3
+    },
+    {
+        "description": "new laptop",
+        "dateOfExpense": "2017-01-13T23:00:00.000Z",
+        "amount": 2354.2,
+        "id": 4
+    }
+]

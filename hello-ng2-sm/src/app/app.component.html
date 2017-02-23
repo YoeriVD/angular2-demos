@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>
+      {{title}}
+    </h1>
+    <h3>{{ subtitle }}</h3>
+    <div>
+      <currency-sign></currency-sign>
+    </div>
+    <p>
+      order by : <input type="text" [(ngModel)]="propertyToOrderOn">
+    </p>
+    <div class="panel panel-info">
+      <expense-form (newExpense)="addExpenseToList($event)"></expense-form>
+    </div>
+    <div class="panel panel-info">
+      <expense-list [expenses]="expenses" [orderByPropName]="propertyToOrderOn">
+      </expense-list>
+    </div>
+  </div>
+</div>
