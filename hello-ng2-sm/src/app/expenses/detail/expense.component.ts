@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Params } from '@angular/router'
 
-import { ExpensesService } from '../expenses.service'
+import { ExpenseService } from '../expenses.service'
 
 @Component({
     selector: 'expense',
@@ -12,7 +12,7 @@ export class ExpenseComponent implements OnInit {
 
     expense = {}
 
-    constructor(private route: ActivatedRoute, private service: ExpensesService) { }
+    constructor(private route: ActivatedRoute, private service: ExpenseService) { }
 
     ngOnInit() {
         this.route.params.subscribe((params: Params) => {

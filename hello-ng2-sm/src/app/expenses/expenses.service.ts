@@ -4,7 +4,7 @@ import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs'
 
 @Injectable()
-export class ExpensesService {
+export class ExpenseService {
 
     constructor(private http: Http) { }
     getExpenses() {

@@ -1,32 +1,38 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture, inject } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-
-xdescribe('AppComponent', () => {
+import { NO_ERRORS_SCHEMA } from '@angular/core'
+import { HttpModule } from '@angular/http'
+import { ExpenseService } from './expenses/expenses.service'
+import { Observable } from 'rxjs/Observable';
+describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [HttpModule],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [ExpenseService]
     });
     TestBed.compileComponents();
+    fixture = TestBed.createComponent(AppComponent)
   });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  it("should have an element", inject([ExpenseService], (service: ExpenseService) => {
 
-  it(`should have as title 'app works!'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
+    // fake result
+    let fakeObservable = Observable.from([
+      [{ id: 1 }]
+    ]);
+    expect(service).toBeTruthy();
+    // spy on service
+    spyOn(service, 'getExpenses').and.returnValue(fakeObservable);
 
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  }));
+    let component: AppComponent = fixture.debugElement.componentInstance;
+    //don't forget to call this!
+    component.ngOnInit();
+    expect(component.expenses).toBeDefined();
+    expect(component.expenses.length).toBe(1);
+  }))
 });

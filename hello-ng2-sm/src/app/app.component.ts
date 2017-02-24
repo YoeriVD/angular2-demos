@@ -4,13 +4,12 @@ import { Expense } from './expense'
 import 'rxjs/add/operator/catch';
 
 
-import { ExpensesService, MockExpensesService } from './expenses/expenses.service';
+import { ExpenseService, MockExpensesService } from './expenses/expenses.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [{provide: ExpensesService, useClass: MockExpensesService}]
 })
 export class AppComponent implements OnInit {
   title = 'Expenses app';
@@ -18,9 +17,7 @@ export class AppComponent implements OnInit {
   expenses: Expense[];
   expensesAsync: any;
   showImage = true;
-  mockExpenses : any;
-  constructor(@SkipSelf() private expenseService: ExpensesService, 
-                          private mockExpenseService: ExpensesService) {
+  constructor(private expenseService: ExpenseService) {
 
   }
  
@@ -29,7 +26,6 @@ export class AppComponent implements OnInit {
     this.expensesAsync.subscribe(expenses => this.expenses = expenses);
 
 
-    this.mockExpenses = this.mockExpenseService.getExpenses();
   }
 
   addExpenseToList(expense: any) {
@@ -53,3 +49,15 @@ export class AppComponent implements OnInit {
     //   new Expense("parking ticket", new Date(2017, 2, 3), 5.23),
     //   new Expense("new laptop", new Date(2016, 12, 14), 2354.20),
     // ];
+
+
+// WEBPACK FOOTER //
+// ./src/app/app.component.ts
+
+
+// WEBPACK FOOTER //
+// ./src/app/app.component.ts
+
+
+// WEBPACK FOOTER //
+// ./src/app/app.component.ts
