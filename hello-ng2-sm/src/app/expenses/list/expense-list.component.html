@@ -9,11 +9,11 @@
     </thead>
 
     <tbody>
-        <tr  *ngFor="let expense of expenses | orderBy : orderByPropName" [class.expensive]="expense.amount > 1000">
-            <td zoom="3">{{ expense.id }}</td>
-            <td zoom="2">{{ expense.description }}</td>
-            <td zoom="1">{{ expense.dateOfExpense | date : 'longDate' }}</td>
-            <td zoom="3">{{ expense.amount | currency : 'EUR' : true }}</td>
+        <tr *ngFor="let expense of expenses | orderBy : orderByPropName" [class.expensive]="expense.amount > 1000">
+            <td>{{ expense.id }}</td>
+            <td><a [routerLink]="['/detail', expense.id]">{{ expense.description }}</a></td>
+            <td>{{ expense.dateOfExpense | date : 'longDate' }}</td>
+            <td>{{ expense.amount | currency : 'EUR' : true }}</td>
         </tr>
     </tbody>
 </table>

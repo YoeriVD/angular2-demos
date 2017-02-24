@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="jumbotron">
+
     <h1 zoom>
       {{title}}
     </h1>
@@ -14,8 +13,6 @@
       <expense-form (newExpense)="addExpenseToList($event)"></expense-form>
     </div>
     <div class="panel panel-info">
-      <expense-list [expenses]="expenses" [orderByPropName]="propertyToOrderOn">
+      <expense-list [expenses]="expensesAsync | async" [orderByPropName]="propertyToOrderOn">
       </expense-list>
     </div>
-  </div>
-</div>
