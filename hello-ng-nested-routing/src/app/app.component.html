@@ -1,0 +1,18 @@
+
+    <h1 zoom>
+      {{title}}
+    </h1>
+    <h3>{{ subtitle }}</h3>
+    <div>
+      <currency-sign></currency-sign>
+    </div>
+    <p>
+      order by : <input type="text" [(ngModel)]="propertyToOrderOn">
+    </p>
+    <div class="panel panel-info">
+      <expense-form (newExpense)="addExpenseToList($event)"></expense-form>
+    </div>
+    <div class="panel panel-info">
+      <expense-list [expenses]="expensesAsync | async" [orderByPropName]="propertyToOrderOn">
+      </expense-list>
+    </div>
