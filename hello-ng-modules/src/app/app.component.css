@@ -1,0 +1,7 @@
+.expensive{
+    color: red;
+}
+
+input.ng-dirty.ng-invalid{
+    border: 1px red solid;
+}

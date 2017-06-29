@@ -1,0 +1,10 @@
+<!--<warning [message]="'Please correct the mistakes in the form'" [show]="showWarning"></warning>-->
+
+<warning [show]="showWarning">The form is in an invalid state</warning>
+
+<form (ngSubmit)="addExpense()" class="form-inline" [formGroup]="expenseForm">
+    <input id="date" type="date" formControlName="date">
+    <input id="title" type="text" formControlName="title">
+    <input id="amount" type="number" formControlName="amount">
+    <input type="submit">
+</form>

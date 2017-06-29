@@ -1,0 +1,10 @@
+<table class="table">
+    <tr *ngFor="let expense of expenses" [hidden]="expense.hidden" [class.expensive]="expense.amount > 500">
+        <td zoom="1.1">{{ expense.date | date : 'longDate' }}</td>
+        <td zoom="1.2" (mouseover)="expenseSelected.emit(expense)">{{ expense.title }}</td>
+        <td zoom="1.3">{{ expense.amount | currency : 'EUR' : true}}</td>
+        <td>
+            <a (click)="hide(expense)">remove</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+<h4 *ngIf="selectedExpense">
+  <selected-expense [selectedExpense]="selectedExpense" ></selected-expense>
+</h4>
+
+
+<div class="panel panel-default text-center">
+  <expense-form (newExpense)="addExpenseToList($event)"></expense-form>
+</div>
+
+<div class="panel panel-default">
+  <expense-list [expenses]="expenses" (expenseSelected)="selectedExpense = $event"></expense-list>
+</div>
+
+<!--<code><pre>{{selectedExpense | json }}</pre></code>-->
