@@ -8,7 +8,7 @@ export class ExpenseService {
     constructor(private http : Http) { }
 
     getExpenses(){
-        return this.http.get('./src/expenses.json').map(r => r.json());
+        return this.http.get('./assets/expenses.json').map(r => r.json());
     }
 
     getExpense(id : number){

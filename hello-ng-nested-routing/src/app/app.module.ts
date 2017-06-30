@@ -3,7 +3,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { Ng2BootstrapModule } from 'ng2-bootstrap'
+import { Ng2BootstrapModule } from 'ngx-bootstrap'
 import { AppComponent } from './app.component';
 import { ExpensesModule } from './expenses/expenses.module'
 import { CommonModule } from './common/common.module'
@@ -11,7 +11,7 @@ import { ShellComponent } from './shell.component'
 import { AppRoutingModule } from './routing/routes.module'
 
 import { CustomHttpService} from './common/http.service'
-function httpClientFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions): Http {
+export function httpClientFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions): Http {
   return new CustomHttpService(xhrBackend, requestOptions);//xhrBackend, requestOptions);
 }
 

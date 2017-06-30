@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log('init')
-    this.expensesAsync = this.http.get('./src/expenses.json').map(r => r.json());
+    this.expensesAsync = this.http.get('./assets/expenses.json').map(r => r.json());
     this.expensesAsync.subscribe(e => this.expenses = e);
   }
 
